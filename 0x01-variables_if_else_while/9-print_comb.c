@@ -10,15 +10,10 @@ int main(void)
 {
 	int i = 0;
 
-	while (i < 10)
+	for (i = 10; i < 99; i++)
 	{
-		putchar(48 + i);
-		if (c != 9)
-		{
-			putchar(',');
-			putchar(' ');
-		}
-		i++;
+		putchar(i);
+		putchar(',');
 	}
 
 	putchar('\n');
