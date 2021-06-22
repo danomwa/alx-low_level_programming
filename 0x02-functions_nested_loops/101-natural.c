@@ -50,7 +50,7 @@ void putnchar(int num)
 {
 	int length = numLength(num), j = length - 1, k, tmp2, digit1;
 
-	if(num == 0)
+	if (num == 0)
 		_putchar(48);
 	else
 	{
@@ -110,4 +110,4 @@ int main(void)
 	putnchar(sumr(3, 1024, 3) + sumr(5, 1024, 5) - sumr(15, 1024, 15));
 	_putchar('\n');
 	return (0);
-}			
+}
