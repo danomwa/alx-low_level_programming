@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_alphabet - Prints the alphabet in lowercase
+ * print_alphabet - Printing the alphabet in lowercase
  *
  * Return 0
  */
