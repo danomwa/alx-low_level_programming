@@ -103,7 +103,7 @@ int sumr(int start, int end, int step)
 /**
  * main - prints the sum of all numbers under 1024
  * that are divisible by 3 or 5
- * Return : 0
+ * Return: 0
  */
 int main(void)
 {
