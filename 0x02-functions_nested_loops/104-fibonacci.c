@@ -33,7 +33,7 @@ int main(void)
 
 	while (i <= 98)
 	{
-		if (1lo > 0)
+		if (flo > 0)
 			printf("%lu", flo);
 		initial0s = numLength(mx) - 1 - numLength(f1);
 		while (f1o > 0 && initial0s > 0)
