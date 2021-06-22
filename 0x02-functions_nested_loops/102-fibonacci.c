@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <studio.h>
+#include <stdio.h>
 
 /**
  * main - prints first 50 numbers of the fibonacci sequence
