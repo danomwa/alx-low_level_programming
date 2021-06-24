@@ -1,3 +1,8 @@
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
+
+int _putchar(char c);
+
 /*0-isupper.c*/
 int _isupper(int c);
 
@@ -15,3 +20,5 @@ void print_most_numbers(void);
 
 /*5-more_numbers.c*/
 void more_numbers(void);
+
+#endif /* HOLBERTON_H*/
