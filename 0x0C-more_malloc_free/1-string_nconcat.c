@@ -1,42 +1,115 @@
 #include "holberton.h"
 #include <stdlib.h>
+/**
+ * _strlen - Counts the lenght of the string
+ * @s: String to analyze
+ *
+ * Return: Lenght of the string
+ */
+
+int _strlen(char *s)
+{
+	int count;
+
+	count = 0;
+	while (*s != '\0')
+	{
+		count++;
+		s++;
+	}
+
+	return (count);
+}
+
 
 /**
- * string_nconcat - concatenates n number of s1 to s2
+ * _strcpy - Copies the string from a source to a destination
+ * @dest: Where to copy the string
+ * @src: String to copy
  *
- * @s1: first string
- * @s2: second string
- * @n: number of s2 to concatenate
- *
- * Return: s1_s2
+ * Return: dest's pointer
  */
+
+char *_strcpy(char *dest, char *src)
+{
+	int count;
+
+	count = 0;
+
+	while (*src != '\0')
+	{
+		*(dest + count) = *src;
+		src++;
+		count++;
+	}
+	*(dest + count) = '\0';
+
+	return (dest);
+}
+
+
+/**
+ * _strncat - Concatenates a string up to the n byte
+ * @dest: String to concatenate
+ * @src: String used to concatenate
+ * @n: Amount of bytes to concatenate
+ *
+ * Return: Destination string (dest)
+ */
+
+char *_strncat(char *dest, char *src, int n)
+{
+	int count_dest;
+	int count_src;
+
+	count_dest = 0;
+	count_src = 0;
+
+	while (*(dest + count_dest) != '\0')
+	{
+		count_dest++;
+	}
+
+	while (*(src + count_src) != '\0' && count_src < n)
+	{
+		*(dest + count_dest) = *(src + count_src);
+		count_dest++;
+		count_src++;
+	}
+
+	*(dest + count_dest) = '\0';
+
+	return (dest);
+}
+
+
+/**
+ * string_nconcat - Concatenates n bytes of one string into another string
+ * @s1: Destination string (string to concatenate)
+ * @s2: Source string (string to add)
+ * @n: Amount of bytes from s2 to concatenate to s1
+ * Return: Pointer to the concatenated string or NULL on failure
+ */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-char *s1_s2;
-unsigned int size1, size2;
-unsigned int count, count2;
+	char *out;
+	unsigned int len1, len2;
 
-if (s1 == NULL)
-s1 = "";
-if (s2 == NULL)
-s2 = "";
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	if (n >= len2)
+		out = malloc(sizeof(char) * (len1 + len2 + 1));
+	else
+		out = malloc(sizeof(char) * (len1 + n + 1));
+	if (out == NULL)
+		return (NULL);
 
-for (size1 = 0; s1[size1] != '\0'; size1++)
-;
-for (size2 = 0; s2[size2] != '\0'; size2++)
-;
-if (n < size2)
-size2 = n;
-
-s1_s2 = malloc(sizeof(char) * (size1 + size2 + 1));
-if (s1_s2 == NULL)
-return (NULL);
-
-for (count = 0; count < size1; count++)
-s1_s2[count] = s1[count];
-for (count2 = 0; count2 < size2; count2++, count++)
-s1_s2[count] = s2[count2];
-s1_s2[count] = '\0';
-
-return (s1_s2);
+	out = _strcpy(out, s1);
+	out = _strncat(out, s2, n);
+	return (out);
 }
