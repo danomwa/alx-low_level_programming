@@ -1,32 +1,23 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
-#include <stdlib.h>
-#include <stdlib.h>
-
+/* Holberton putchar function */
 int _putchar(char c);
 
-/* 0-malloc_checked.c */
+/* 0x0C mandatory functions */
 void *malloc_checked(unsigned int b);
-
-/* 1-string_nconcat.c */
 char *string_nconcat(char *s1, char *s2, unsigned int n);
-
-/* 2-calloc.c */
 void *_calloc(unsigned int nmemb, unsigned int size);
-
-/* 3-array_range.c */
 int *array_range(int min, int max);
 
-/* 100-realloc.c */
+/* 0x0C advanced functions */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
-int _strlen(char *);
+/* 0x0C backup functions */
+char *_strncat(char *dest, char *src, int n);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+char *_memset(char *s, char b, unsigned int n);
+int *array_fill(int *arr, int min, int max);
 
-char *_memcpy(char *dest, char *src, unsigned int n);
-
-int onlyNumbers(char *c);
-
-void multiply(char* s1, char* s2);
-
-#endif /*HOLBERTON_H */
+#endif
