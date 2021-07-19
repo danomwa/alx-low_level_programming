@@ -1,36 +1,47 @@
 #include "holberton.h"
-
+#include <stdlib.h>
 /**
- * _calloc - allocates memory for an array, using malloc
- * @nmemb: number of elements of pointer
- * @size: size of each member
- * Return: pointer of allocated memory
+ * _memset - Fills memory with a constant byte
+ * @s: Where to fill
+ * @b: Byte used to fill
+ * @n: How many bytes to fill
+ *
+ * Return: Pointer to the filled memory area
  */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	void *ptr;
 
-	if (!nmemb || !size)
-		return (NULL);
-	ptr = malloc(size * nmemb);
-	if (!ptr)
-		return (NULL);
-	_memset(ptr, 0, size * nmemb);
-	return (ptr);
-}
-
-/**
- * _memset - fills memory with a constant byte
- * @s: memory area
- * @b: constant byte
- * @n: bytes of the memory area
- * Return: pointer to the memory area s
- */
 char *_memset(char *s, char b, unsigned int n)
 {
-	char *ptr = s;
+	unsigned int i;
 
-	while (n--)
-		*s++ = b;
-	return (ptr);
+	i = 0;
+	while (i < n)
+	{
+		s[i] = b;
+		i++;
+	}
+
+	return (s);
+}
+
+
+/**
+ * _calloc - Allocates memory space and returns a pointer to that direction
+ * @nmemb: Number of elements to store
+ * @size: Data type of the elements
+ * Return: Pointer to the allocated memory space
+ */
+
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	char *arr;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+
+	arr = malloc(nmemb * size);
+	if (arr == NULL)
+		return (NULL);
+
+	arr = _memset(arr, 0, nmemb * size);
+	return (arr);
 }
